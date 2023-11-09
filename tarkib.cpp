@@ -19,3 +19,4 @@ int main(){
  cout<<"combination symbol="<<k<<"from="<<n<<"parts="<<result<<endl;
  return 0;
 }
+//tarkib code
