@@ -44,3 +44,17 @@ class stack1{
         return x;
       }
     }
+
+     int peek()
+    {
+      if(isempty())
+      {
+        return -1;
+      }
+      else
+      {
+        return arr[top];
+      }
+    }
+
+};
