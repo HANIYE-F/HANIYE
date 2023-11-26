@@ -16,3 +16,16 @@ public:
         top1 = -1;
         top2 = -1;
     }
+
+     bool isFull() {
+    	if(top1 == maxsize - 1)
+    	{
+    		return true;
+		}
+        else
+        {
+        	return false;
+		}
+
+    }
+
