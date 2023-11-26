@@ -19,3 +19,15 @@ class stack1{
 				return false;
 			}
 		}
+
+		void push(int x)
+		{
+			if(top==maxsize-1)
+			{
+					return;
+			}
+			else{
+				arr[++top]=x;
+			}
+
+		}
