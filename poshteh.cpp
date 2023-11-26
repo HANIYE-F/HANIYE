@@ -9,3 +9,13 @@ class stack1{
 		stack1(){
 			top=-1;
 		}
+		bool isempty()
+		{
+			if(top==-1)
+			{
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
