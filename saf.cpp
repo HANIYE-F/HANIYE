@@ -84,3 +84,28 @@ int dequeue()
 			return arr[front];
 		}
 	}
+	Queue reverseQueue()
+	{
+		if(isEmpty())
+		{
+			return *this;
+		}
+		else
+		{
+			Queue reQueue;
+			int temp[maxsize];
+			int i=0;
+			for(int j=rear;j>=front;j--)
+			{
+				temp[i]=arr[j];
+				i++;
+			}
+			for(int k=0;k<i;k++)
+			{
+				reQueue.enqueue(temp[k]);
+			}
+			return reQueue;
+		}
+	}
+
+};
