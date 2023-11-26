@@ -28,4 +28,14 @@ public:
 		}
 
     }
+  bool isEmpty() {
+      if(top1 == -1 && top2 == -1)
+      {
+        return true;
+    }
+        else
+        {
+          return false;
+    }
+    }
 
