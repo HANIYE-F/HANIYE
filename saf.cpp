@@ -25,3 +25,34 @@ class Queue{
 			return false;
 		}
 	}
+
+	bool isFull()
+	{
+		if (rear == maxsize - 1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
+
+	int enqueue(int a)
+	{
+		if(isFull())
+		{
+			return -1;
+		}
+		else if(isEmpty())
+		{
+			front=rear=0;
+		}
+		else{
+			rear++;
+		}
+		arr[rear]=a;
+	}
+
