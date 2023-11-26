@@ -38,4 +38,12 @@ public:
           return false;
     }
     }
-
+  void enqueue(int x) {
+        if (isFull()) {
+            return;
+        }
+        else {
+            top1++;
+            stack1[top1] = x;
+        }
+    }
