@@ -27,3 +27,16 @@ public:
     else
       return false;
   }
+
+  void enQueue(int element) {
+    if (isFull()) {
+      return;
+    }
+
+    else {
+      if (front == -1)
+        front = 0;
+      rear = (rear + 1) % SIZE;
+      items[rear] = element;
+    }
+  }
