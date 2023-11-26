@@ -55,4 +55,21 @@ class Queue{
 		}
 		arr[rear]=a;
 	}
-
+int dequeue()
+	{
+		if (isEmpty())
+		{
+			return -1;
+		}
+		else if (front == rear)
+		{
+			int temp = arr[front];
+			front = rear = -1;
+			return temp;
+		}
+		else{
+			int temp = arr[front];
+			front++;
+			return temp;
+		}
+	}
