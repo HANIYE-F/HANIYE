@@ -13,3 +13,8 @@ else
 	return a * power(a,b-1);
 }
 }
+
+int main()
+{
+	cout<<power(2,8);
+}
