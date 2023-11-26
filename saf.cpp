@@ -73,3 +73,14 @@ int dequeue()
 			return temp;
 		}
 	}
+
+	int peek()
+	{
+		if (isEmpty())
+		{
+			return -1;
+		}
+		else{
+			return arr[front];
+		}
+	}
