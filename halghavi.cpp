@@ -40,3 +40,23 @@ public:
       items[rear] = element;
     }
   }
+
+   int deQueue() {
+    int element;
+    if (isEmpty()) {
+      return (-1);
+    }
+    else {
+      element = items[front];
+      if (front == rear) {
+        front = -1;
+        rear = -1;
+      }
+
+      else {
+        front = (front + 1) % SIZE;
+      }
+      return (element);
+    }
+  }
+}
