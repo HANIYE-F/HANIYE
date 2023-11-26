@@ -31,3 +31,16 @@ class stack1{
 			}
 
 		}
+
+		int pop()
+    {
+      if(isempty())
+      {
+        return -1;
+      }
+      else
+      {
+        x=arr[top--];
+        return x;
+      }
+    }
