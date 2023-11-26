@@ -23,3 +23,19 @@ public:
 
     return(n+1);
   }
+ int delet(int a[],int n,int del)
+    {
+    	int p;
+    	p=find(a,n,del);
+    	if(p==-1)
+    	{
+    		return n;
+		}
+
+		for(int i=p;i<=n-2;i++)
+		{
+			a[i]=a[i+1];
+		}
+		return n-1;
+	}
+};
