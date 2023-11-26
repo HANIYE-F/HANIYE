@@ -70,3 +70,26 @@ public:
             return value;
         }
     }
+ int peek() {
+        if (top1 == -1 && top2 == -1) {
+
+            return -1;
+        }
+        else {
+            if (top2 == -1) {
+
+                while (top1 != -1) {
+                    int temp = stack1[top1];
+                    top1--;
+                    top2++;
+                    stack2[top2] = temp;
+                }
+            }
+
+            return stack2[top2];
+        }
+    }
+
+
+
+};
