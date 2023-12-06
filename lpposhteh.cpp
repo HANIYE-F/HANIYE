@@ -103,3 +103,32 @@ public:
         }
     }
 };
+
+
+int main()
+{
+
+    Stack s;
+
+    s.push(11);
+    s.push(22);
+    s.push(33);
+    s.push(44);
+
+
+    s.display();
+
+
+    cout << "\nTop element is " << s.peek() << endl;
+
+
+    s.pop();
+    s.pop();
+
+    s.display();
+
+
+    cout << "\nTop element is " << s.peek() << endl;
+
+    return 0;
+}
