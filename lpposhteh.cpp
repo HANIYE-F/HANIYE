@@ -42,3 +42,64 @@ public:
 
         top = temp;
     }
+
+
+    bool isEmpty()
+    {
+        return top == NULL;
+    }
+
+
+    int peek()
+    {
+
+        if (!isEmpty())
+            return top->data;
+        else
+            exit(1);
+    }
+
+
+    void pop()
+    {
+        Node* temp;
+
+
+        if (top == NULL) {
+            cout << "\nStack Underflow" << endl;
+            exit(1);
+        }
+        else {
+
+
+            temp = top;
+
+            top = top->link;
+
+
+            free(temp);
+        }
+    }
+
+
+    void display()
+    {
+        Node* temp;
+
+        if (top == NULL) {
+            cout << "\nStack Underflow";
+            exit(1);
+        }
+        else {
+            temp = top;
+            while (temp != NULL) {
+
+                cout << temp->data;
+
+                temp = temp->link;
+                if (temp != NULL)
+                    cout << " -> ";
+            }
+        }
+    }
+};
