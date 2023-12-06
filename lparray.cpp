@@ -29,3 +29,23 @@ int main()
 
 
         int s = 4;
+         while (s--) {
+
+
+            info* n = new info;
+
+
+            n->data = i * s;
+            n->next = NULL;
+
+
+            if (*(head + i) == NULL) {
+                *(head + i) = n;
+            }
+            else {
+                prev->next = n;
+            }
+            prev = n;
+        }
+    }
+
