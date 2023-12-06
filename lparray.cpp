@@ -49,3 +49,18 @@ int main()
         }
     }
 
+    for (int i = 0; i < size; ++i) {
+        info* temp = *(head + i);
+
+        cout << i << "-->\t";
+
+        while (temp != NULL) {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+
+        cout << '\n';
+    }
+
+    return 0;
+}
