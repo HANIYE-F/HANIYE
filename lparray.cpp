@@ -1,12 +1,31 @@
-// C++ program to illustrate the array
-// of Linked Lists
+
 #include <iostream>
 using namespace std;
 
-// Structure of Linked Lists
+
 struct info {
     int data;
     info* next;
 };
 
-// Driver Code
+int main()
+{
+    int size = 10;
+
+    info** head;
+
+
+    head = new info*[size];
+
+
+    for (int i = 0; i < size; ++i) {
+        *(head + i) = NULL;
+    }
+
+
+    for (int i = 0; i < size; ++i) {
+
+        info* prev = NULL;
+
+
+        int s = 4;
