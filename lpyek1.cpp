@@ -32,3 +32,25 @@ public:
             otherCurrent = otherCurrent->next;
         }
     }
+
+     // Invert the linked list
+    void Invert() {
+        Node<T>* prev = NULL;
+        Node<T>* current = head;
+        Node<T>* next = NULL;
+
+        while (current != NULL) {
+            next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+        }
+
+        head = prev;
+    }
+};
+
+int main() {
+    // ... (نمونه استفاده)
+    return 0;
+}
