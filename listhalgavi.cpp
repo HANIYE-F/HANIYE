@@ -116,3 +116,46 @@ Node* deleteindexof(Node* head,int n){
 	head->next=head->next->next;
 	return xx;
 }
+Node* updateindexof(Node* head,int n,int data){
+    	if(size(head)<n){
+    		cout<<"error...";
+    		return head;
+    	}
+    	Node* x=head;
+    	if(n==1)
+    		x->data=data;
+
+    	for(int i=0;i<n-1;i++){
+    		x=x->next;
+    	}
+    	x->data=data;
+    	return head;
+    }
+    Node* concatenate(Node* head,Node* x){
+    	while(x!=NULL){
+    		head=insertNodeend(head,x->data);
+    		x=x->next;
+    	}
+    	return head;;
+    }
+int main() {
+   Node* head = NULL;
+
+   // افزودن عناصر به لیست پیوندی حلقوی
+   head = insertNodeend(head, 1);
+   head = insertNodeend(head, 2);
+   head = insertNodeend(head, 3);
+   head = insertNodeend(head, 4);
+   head = insertNodeend(head, 5);
+
+   // نمایش لیست پیوندی حلقوی
+   displayCircularLinkedList(head);
+	head=insertofindex(head,2,10);
+	head = deleteindexof(head,6);
+	//cout<<"\n"<<size(head);
+	updateindexof(head,5,0);
+
+	displayCircularLinkedList(head);
+   return 0;
+}
+
