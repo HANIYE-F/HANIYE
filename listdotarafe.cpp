@@ -158,3 +158,31 @@ public:
     	}
     }
 };
+
+int main() {
+    DoublyLinkedList dll;
+
+    dll.insertAtBeginning(3);
+    dll.insertAtBeginning(2);
+    dll.insertAtBeginning(1);
+    dll.insertAtEnd(4);
+    dll.insertAtEnd(5);
+
+    // نمایش لیست
+    Node* current = dll.gethead();
+    while (current != NULL) {
+        cout << current->data << " ";
+        current = current->next;
+    }
+    cout<<endl;
+    dll.insertofindex(6,7);
+	dll.updateindexof(6,0);
+    current = dll.gethead();
+    while (current != NULL) {
+        cout << current->data << " ";
+        current = current->next;
+    }
+
+    return 0;
+}
+
