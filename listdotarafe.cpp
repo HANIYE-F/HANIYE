@@ -112,3 +112,49 @@ public:
 
         delete x;
     }
+
+     void deletestart(){
+    	if(is_empy())
+    		return;
+    	//head->next->next->prev=head;
+    	if(head==tail){
+    		delete head;
+    		return;
+    		}
+    	head=head->next;
+    	head->prev=NULL;
+    }
+    bool is_empy(){
+    	return head==NULL;
+    }
+    void deleteend(){
+    	if(is_empy())
+    		return;
+    	//head->next->next->prev=head;
+    	if(head==tail){
+    		delete head;
+    		return;
+    		}
+    	tail=tail->prev;
+    	tail->next=NULL;
+    }
+    void updateindexof(int n,int data){
+    	if(size()<n-1)
+    		return;
+    	Node* x=head;
+    	if(n==1)
+    		x->data=data;
+
+    	for(int i=0;i<n-1;i++){
+    		x=x->next;
+    	}
+    	x->data=data;
+    }
+     void concatenate(DoublyLinkedList x){
+    	Node*headd=x.gethead();
+    	while(headd!=NULL){
+    		insertAtEnd(headd->data);
+    		headd=headd->next;
+    	}
+    }
+};
