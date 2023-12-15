@@ -50,3 +50,42 @@ Node* insertNodeend(Node* head, int data) {
 
    return head;
 }
+// تابع برای نمایش لیست پیوندی حلقوی
+void displayCircularLinkedList(Node* head) {
+   // اگر لیست خالی است
+   if (head == NULL) {
+      cout << "لیست پیوندی حلقوی خالی است." << endl;
+      return;
+   }
+
+   Node* current = head;
+
+   // نمایش هر عنصر در لیست
+   do {
+      cout << current->data << " ";
+      current = current->next;
+   } while (current != head);
+
+   cout << endl;
+}
+Node* insertstart(Node* head,int data){
+
+	return head;
+}
+Node* insertofindex(Node* head,int n,int data){
+	if(n==1)
+		return insertstart(head,data);
+	if(n-1==size(head))
+		return insertNodeend(head,data);
+	if(n>size(head)){
+		cout<<"error...\n";
+		return head;
+	}
+	Node* xx=head;
+	for(int i=0;i<n-2;i++)head=head->next;
+	Node* newnode=new Node;
+	newnode->data=data;
+	newnode->next=head->next;
+	head->next=newnode;
+	return xx;
+}
