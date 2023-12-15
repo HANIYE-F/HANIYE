@@ -60,3 +60,55 @@ public:
     		insertAtEnd(data);
     		return;
     	}
+    		Node* x=head;
+    	Node* new_m=new Node;
+    	for(int i=0;i<n-2;i++)x=x->next;
+    	x->next->prev=new_m;
+    	new_m->prev=x;
+    	new_m->next=x->next;
+    	x->next=new_m;
+    	new_m->data=data;
+    	delete x;
+    	delete new_m;
+    }
+	int size(){
+	   if(is_empy())
+	   	return 0;
+	   int i=1;
+	   Node* x=head;
+	   while(x!=tail){
+	   	i++;
+	   	x=x->next;
+	   }
+	   return i;
+	}
+    // حذف گره از لیست
+    void deleteNode(int n) {
+        Node* x;
+        x=head;
+        int i=0;
+         if (head == NULL)
+            return;
+        if(n>size())
+        	return;
+        if(n==size()){
+        	deleteend();
+        	return;
+        }
+        if(n==1){
+        	deletestart();
+        	return;
+        }
+        while(i<n-1){i++;x=x->next;}
+
+
+        // اگر گره دارای گره قبلی بود، پیوند بین گره قبلی و گره بعدی را تنظیم کنید
+        if (x->prev != NULL)
+            x->prev->next = x->next;
+
+        // اگر گره دارای گره بعدی بود، پیوند بین گره بعدی و گره قبلی را تنظیم کنید
+        if (x->next != NULL)
+            x->next->prev = x->prev;
+
+        delete x;
+    }
