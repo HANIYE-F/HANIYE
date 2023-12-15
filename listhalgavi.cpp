@@ -89,3 +89,30 @@ Node* insertofindex(Node* head,int n,int data){
 	head->next=newnode;
 	return xx;
 }
+Node* deletestart(Node* head){
+	Node* last = head;
+   while (last->next!= head)last = last->next;
+	last->next=head->next;
+	head=head->next;
+	return head;
+}
+Node* deleteend(Node* head){
+	Node* last = head;
+   while (last->next->next != head)last = last->next;
+   last->next=head;
+	return head;
+}
+Node* deleteindexof(Node* head,int n){
+	if(size(head)==0){
+		cout<<"error...";
+		return head;
+	}
+	if(n==1)
+		return deletestart(head);
+	if(n-1==size(head))
+		return deleteend(head);
+	Node* xx=head;
+	for(int i=0;i<n-2;i++)head=head->next;
+	head->next=head->next->next;
+	return xx;
+}
