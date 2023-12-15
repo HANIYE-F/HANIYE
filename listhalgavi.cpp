@@ -25,3 +25,28 @@ Node* createCircularLinkedList(int data) {
 
    return newNode;
 }
+// تابع برای افزودن یک عنصر به لیست پیوندی حلقوی
+Node* insertNodeend(Node* head, int data) {
+   // اگر لیست خالی است
+   if (head == NULL) {
+      return createCircularLinkedList(data);
+   }
+
+   // تعیین عنصر آخر لیست
+   Node* last = head;
+   while (last->next != head) {
+      last = last->next;
+   }
+
+   // ایجاد عنصر جدید
+   Node* newNode = new Node;
+   newNode->data = data;
+
+   // اتصال عنصر جدید به عنصر آخر لیست
+   last->next = newNode;
+
+   // اتصال عنصر جدید به شروع لیست
+   newNode->next = head;
+
+   return head;
+}
