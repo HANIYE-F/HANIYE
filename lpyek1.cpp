@@ -1,56 +1,17 @@
-#include <iostream>
-
-template <typename T>
-class Node {
-public:
-    T data;
+#include<iostream>
+using namespace std;
+struct Node {
+    string name;
     Node* next;
-
-    Node(T value) : data(value), next(NULL) {}
 };
 
-template <typename T>
-class LinkedList {
+// Class for LinkedInList
+class LinkedInList {
 private:
-    Node<T>* head;
-    int size;
+    Node* head;
 
 public:
-    LinkedList() : head(NULL), size(0) {}
- // ... (بقیه توابع به عنوان پیشنهاد شده)
-
-    // Concatenate with another linked list
-    void Concatenate(const LinkedList<T>& otherList) {
-        Node<T>* current = head;
-        while (current->next != NULL) {
-            current = current->next;
-        }
-
-        Node<T>* otherCurrent = otherList.head;
-        while (otherCurrent != NULL) {
-            InsertAtEnd(otherCurrent->data);
-            otherCurrent = otherCurrent->next;
-        }
+    // Constructor
+    LinkedInList() {
+        head = NULL;
     }
-
-     // Invert the linked list
-    void Invert() {
-        Node<T>* prev = NULL;
-        Node<T>* current = head;
-        Node<T>* next = NULL;
-
-        while (current != NULL) {
-            next = current->next;
-            current->next = prev;
-            prev = current;
-            current = next;
-        }
-
-        head = prev;
-    }
-};
-
-int main() {
-    // ... (نمونه استفاده)
-    return 0;
-}
