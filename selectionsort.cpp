@@ -19,3 +19,21 @@ void selectionSort(int arr[], int n)
             if (arr[j] < arr[min_idx])
                 min_idx = j;
         }
+         // Swap the found minimum element
+        // with the first element
+        if (min_idx != i)
+            swap(arr[min_idx], arr[i]);
+    }
+}
+
+// Function to print an array
+void printArray(int arr[], int size)
+{
+    int i;
+    for (i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+        cout << endl;
+    }
+}
+
+// Driver program
