@@ -46,3 +46,25 @@ void printChildren(int Root, vector<vector<int> >& adj)
         cout << endl;
     }
 }
+// Function to print the leaf nodes
+void printLeafNodes(int Root, vector<vector<int> >& adj)
+{
+    // Leaf nodes have only one edge and are not the root
+    for (int i = 1; i < adj.size(); i++)
+        if (adj[i].size() == 1 && i != Root)
+            cout << i << " ";
+    cout << endl;
+}
+// Function to print the degrees of each node
+void printDegrees(int Root, vector<vector<int> >& adj)
+{
+    for (int i = 1; i < adj.size(); i++) {
+        cout << i << ": ";
+        // Root has no parent, thus, its degree is equal to
+        // the edges it is connected to
+        if (i == Root)
+            cout << adj[i].size() << endl;
+        else
+            cout << adj[i].size() - 1 << endl;
+    }
+}
