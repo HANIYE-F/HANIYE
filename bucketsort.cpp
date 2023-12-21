@@ -21,3 +21,13 @@ void bucketSort(float arr[], int n)
         int bi = n * arr[i];
         b[bi].push_back(arr[i]);
     }
+     // 3) Sort individual buckets
+    for (int i = 0; i < n; i++)
+        sort(b[i].begin(), b[i].end());
+
+    // 4) Concatenate all buckets into arr[]
+    int index = 0;
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < b[i].size(); j++)
+            arr[index++] = b[i][j];
+}
