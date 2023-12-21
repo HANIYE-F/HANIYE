@@ -29,3 +29,14 @@ void printArray(int arr[], int size)
     for (i = 0; i < size; i++)
         cout << " " << arr[i];
 }
+// Driver program to test above functions
+int main()
+{
+    int arr[] = { 64, 34, 25, 12, 22, 11, 90 };
+    int N = sizeof(arr) / sizeof(arr[0]);
+    bubbleSort(arr, N);
+    cout << "Sorted array: \n";
+    printArray(arr, N);
+    return 0;
+}
+// This code is contributed by shivanisinghss2110
