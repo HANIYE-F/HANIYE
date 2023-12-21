@@ -22,3 +22,27 @@ void printParents(int node, vector<vector<int> >& adj,
         if (cur != parent)
             printParents(cur, adj, node);
 }
+// Function to print the children of each node
+void printChildren(int Root, vector<vector<int> >& adj)
+{
+    // Queue for the BFS
+    queue<int> q;
+    // pushing the root
+    q.push(Root);
+    // visit array to keep track of nodes that have been
+    // visited
+    int vis[adj.size()] = { 0 };
+    // BFS
+    while (!q.empty()) {
+        int node = q.front();
+        q.pop();
+        vis[node] = 1;
+        cout << node << "-> ";
+        for (auto cur : adj[node])
+            if (vis[cur] == 0) {
+                cout << cur << " ";
+                q.push(cur);
+            }
+        cout << endl;
+    }
+}
