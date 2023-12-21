@@ -15,3 +15,17 @@ void bubbleSort(int arr[], int n)
                 swapped = true;
             }
         }
+  // If no two elements were swapped
+        // by inner loop, then break
+        if (swapped == false)
+            break;
+    }
+}
+
+// Function to print an array
+void printArray(int arr[], int size)
+{
+    int i;
+    for (i = 0; i < size; i++)
+        cout << " " << arr[i];
+}
