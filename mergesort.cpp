@@ -50,4 +50,28 @@ void merge(int array[], int const left, int const mid,
         indexOfSubArrayOne++;
         indexOfMergedArray++;
     }
+// Copy the remaining elements of
+    // right[], if there are any
+    while (indexOfSubArrayTwo < subArrayTwo) {
+        array[indexOfMergedArray]
+            = rightArray[indexOfSubArrayTwo];
+        indexOfSubArrayTwo++;
+        indexOfMergedArray++;
+    }
+    delete[] leftArray;
+    delete[] rightArray;
+}
+
+// begin is for left index and end is right index
+// of the sub-array of arr to be sorted
+void mergeSort(int array[], int const begin, int const end)
+{
+    if (begin >= end)
+        return;
+
+    int mid = begin + (end - begin) / 2;
+    mergeSort(array, begin, mid);
+    mergeSort(array, mid + 1, end);
+    merge(array, begin, mid, end);
+}
 
