@@ -20,3 +20,22 @@ vector<int> countSort(vector<int>& inputArray)
 
     for (int i = 0; i < N; i++)
         countArray[inputArray[i]]++;
+// Calculating prefix sum at every index
+    // of array countArray[]
+    for (int i = 1; i <= M; i++)
+        countArray[i] += countArray[i - 1];
+
+    // Creating outputArray[] from countArray[] array
+    vector<int> outputArray(N);
+
+    for (int i = N - 1; i >= 0; i--)
+
+    {
+        outputArray[countArray[inputArray[i]] - 1]
+            = inputArray[i];
+
+        countArray[inputArray[i]]--;
+    }
+
+    return outputArray;
+}
