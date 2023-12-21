@@ -20,3 +20,25 @@ int partition(int arr[],int low,int high)
       swap(arr[i],arr[j]);
     }
   }
+  swap(arr[i+1],arr[high]);
+  return (i+1);
+}
+
+// The Quicksort function Implement
+
+void quickSort(int arr[],int low,int high)
+{
+  // when low is less than high
+  if(low<high)
+  {
+    // pi is the partition return index of pivot
+
+    int pi=partition(arr,low,high);
+
+    //Recursion Call
+    //smaller element than pivot goes left and
+    //higher element goes right
+    quickSort(arr,low,pi-1);
+    quickSort(arr,pi+1,high);
+  }
+}
