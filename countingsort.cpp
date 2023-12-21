@@ -39,3 +39,19 @@ vector<int> countSort(vector<int>& inputArray)
 
     return outputArray;
 }
+// Driver code
+int main()
+
+{
+
+    // Input array
+    vector<int> inputArray = { 4, 3, 12, 1, 5, 5, 3, 9 };
+
+    // Output array
+    vector<int> outputArray = countSort(inputArray);
+
+    for (int i = 0; i < inputArray.size(); i++)
+        cout << outputArray[i] << " ";
+
+    return 0;
+}
