@@ -68,3 +68,35 @@ void printDegrees(int Root, vector<vector<int> >& adj)
             cout << adj[i].size() - 1 << endl;
     }
 }
+// Driver code
+int main()
+{
+    // Number of nodes
+    int N = 7, Root = 1;
+    // Adjacency list to store the tree
+    vector<vector<int> > adj(N + 1, vector<int>());
+    // Creating the tree
+    addEdge(1, 2, adj);
+    addEdge(1, 3, adj);
+    addEdge(1, 4, adj);
+    addEdge(2, 5, adj);
+    addEdge(2, 6, adj);
+    addEdge(4, 7, adj);
+    // Printing the parents of each node
+    cout << "The parents of each node are:" << endl;
+    printParents(Root, adj, 0);
+
+    // Printing the children of each node
+    cout << "The children of each node are:" << endl;
+    printChildren(Root, adj);
+
+    // Printing the leaf nodes in the tree
+    cout << "The leaf nodes of the tree are:" << endl;
+    printLeafNodes(Root, adj);
+
+    // Printing the degrees of each node
+    cout << "The degrees of each node are:" << endl;
+    printDegrees(Root, adj);
+
+    return 0;
+}
