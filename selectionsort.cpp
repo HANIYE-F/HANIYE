@@ -37,3 +37,16 @@ void printArray(int arr[], int size)
 }
 
 // Driver program
+int main()
+{
+    int arr[] = { 64, 25, 12, 22, 11 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    // Function Call
+    selectionSort(arr, n);
+    cout << "Sorted array: \n";
+    printArray(arr, n);
+    return 0;
+}
+
+// This is code is contributed by rathbhupendra
