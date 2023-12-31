@@ -59,3 +59,32 @@ void bfs(int start)
             }
         }
     }
+
+    void dfs(int start)
+    {
+        std::stack<int> stk;
+        std::unordered_map<int, bool> visited;
+
+        stk.push(start);
+
+        while (!stk.empty())
+        {
+            int v = stk.top();
+            stk.pop();
+
+            if (!visited[v])
+            {
+                std::cout << v << " ";
+                visited[v] = true;
+
+                for (auto& neighbor : adjList[v])
+                {
+                    if (!visited[neighbor])
+                    {
+                        stk.push(neighbor);
+                    }
+                }
+            }
+        }
+    }
+};
