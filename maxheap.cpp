@@ -36,3 +36,32 @@ private:
             heapifyDown(largest);
         }
     }
+    public:
+    void insert(int value)
+    {
+        heap.push_back(value);
+        heapifyUp(heap.size() - 1);
+    }
+
+    void removeMax()
+    {
+        if (heap.empty())
+        {
+            cout << "Heap is empty\n";
+            return;
+        }
+
+        heap[0] = heap.back();
+        heap.pop_back();
+        heapifyDown(0);
+    }
+
+    void display()
+    {
+        for (int i : heap)
+        {
+            cout << i << " ";
+        }
+        cout << "\n";
+    }
+};
