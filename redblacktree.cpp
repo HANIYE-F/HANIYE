@@ -26,3 +26,45 @@ private:
         node->right = nullptr;
         node->color = 0;
     }
+// For balancing the tree after deletion
+    void deleteFix(NodePtr x)
+    {
+        NodePtr s;
+        while (x != root && x->color == 0)
+        {
+            if (x == x->parent->left)
+            {
+                s = x->parent->right;
+                if (s->color == 1)
+                {
+                    s->color = 0;
+                    x->parent->color = 1;
+                    leftRotate(x->parent);
+                    s = x->parent->right;
+                }
+
+                if (s->left->color == 0 && s->right->color == 0)
+                {
+                    s->color = 1;
+                    x = x->parent;
+                }
+                else
+                {
+                    if (s->right->color == 0)
+                    {
+                        s->left->color = 0;
+                        s->color = 1;
+                        rightRotate(s);
+                        s = x->parent->right;
+                    }
+
+                    s->color = x->parent->color;
+                    x->parent->color = 0;
+                    s->right->color = 0;
+                    leftRotate(x->parent);
+                    x = root;
+                }
+            }
+            else
+            {
+                s = x->parent->left;
