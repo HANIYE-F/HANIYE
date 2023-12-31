@@ -68,3 +68,36 @@ private:
             else
             {
                 s = x->parent->left;
+                 if (s->color == 1)
+                {
+                    s->color = 0;
+                    x->parent->color = 1;
+                    rightRotate(x->parent);
+                    s = x->parent->left;
+                }
+
+                if (s->right->color == 0 && s->right->color == 0)
+                {
+                    s->color = 1;
+                    x = x->parent;
+                }
+                else
+                {
+                    if (s->left->color == 0)
+                    {
+                        s->right->color = 0;
+                        s->color = 1;
+                        leftRotate(s);
+                        s = x->parent->left;
+                    }
+
+                    s->color = x->parent->color;
+                    x->parent->color = 0;
+                    s->left->color = 0;
+                    rightRotate(x->parent);
+                    x = root;
+                }
+            }
+        }
+        x->color = 0;
+    }
