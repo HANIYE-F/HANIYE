@@ -35,3 +35,27 @@ public:
         }
     }
 
+void bfs(int start)
+    {
+        std::queue<int> q;
+        std::unordered_map<int, bool> visited;
+
+        q.push(start);
+        visited[start] = true;
+
+        while (!q.empty())
+        {
+            int v = q.front();
+            q.pop();
+            std::cout << v << " ";
+
+            for (auto& neighbor : adjList[v])
+            {
+                if (!visited[neighbor])
+                {
+                    q.push(neighbor);
+                    visited[neighbor] = true;
+                }
+            }
+        }
+    }
