@@ -42,3 +42,31 @@ Node* rotateRight(Node* z)
 
     return y;
 }
+// تابع برای انجام عملیات چرخش به چپ
+Node* rotateLeft(Node* z)
+{
+    Node* y = z->right;
+    Node* T2 = y->left;
+
+    y->left = z;
+    z->right = T2;
+
+    z->height = 1 + max(getHeight(z->left), getHeight(z->right));
+    y->height = 1 + max(getHeight(y->left), getHeight(y->right));
+
+    return y;
+}
+
+// تابع برای افزودن گره به درخت AVL
+Node* insertNode(Node* root, int data)
+{
+    // مرحله 1: افزودن گره به صورت معمول در BST
+    if (root == nullptr)
+        return createNode(data);
+
+    if (data < root->data)
+        root->left = insertNode(root->left, data);
+    else if (data > root->data)
+        root->right = insertNode(root->right, data);
+    else // گره تکراری را نادیده می‌گیریم
+        return root;
