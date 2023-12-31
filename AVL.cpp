@@ -70,3 +70,23 @@ Node* insertNode(Node* root, int data)
         root->right = insertNode(root->right, data);
     else // گره تکراری را نادیده می‌گیریم
         return root;
+         // مرحله 2: به‌روزرسانی ارتفاع گره
+    root->height = 1 + max(getHeight(root->left), getHeight(root->right));
+
+    // مرحله 3: بررسی و تصحیح تعادل درخت
+    int balanceFactor = getHeight(root->left) - getHeight(root->right);
+
+    // اگر درخت به سمت چپ شیب دارد
+    if (balanceFactor > 1)
+    {
+        // حالت 1: درج در زیردرخت چپ چپ
+        if (data < root->left->data)
+            return rotateRight(root);
+
+        // حالت 2: درج در زیردرخت چپ راست
+        if (data > root->left->data)
+        {
+            root->left = rotateLeft(root->left);
+            return rotateRight(root);
+        }
+    }
