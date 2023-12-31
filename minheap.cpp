@@ -25,3 +25,41 @@ class MinHeap
             heapify(smallest);
         }
     }
+public:
+    void insert(int value)  //عنصر جدید را درج میکند
+    {
+        heapArray.push_back(value);
+        int currentIndex = heapArray.size() - 1;
+
+        while (currentIndex != 0 && heapArray[currentIndex] < heapArray[(currentIndex - 1) / 2])
+        {
+            swap(heapArray[currentIndex], heapArray[(currentIndex - 1) / 2]);
+            currentIndex = (currentIndex - 1) / 2;
+        }
+    }
+
+    void remove()  //عنصر کمینه را حذف میکند
+    {
+        if (heapArray.empty())
+        {
+            cout << "Heap is empty. Cannot remove element." << endl;
+            return;
+        }
+
+        heapArray[0] = heapArray.back();
+        heapArray.pop_back();
+
+        heapify(0);
+    }
+
+    int getMin() //این تابع مقدار کمینه را از هیپ بازگردانده میکند
+    {
+        if (heapArray.empty())
+        {
+            cout << "Heap is empty." << endl;
+            return INT_MAX;
+        }
+
+        return heapArray[0];
+    }
+};
