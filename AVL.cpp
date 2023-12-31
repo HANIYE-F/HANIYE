@@ -13,7 +13,7 @@ struct Node
 // تابع برای محاسبه ارتفاع گره
 int getHeight(Node* node)
 {
-    if (node == nullptr)
+    if (Node == null)
         return 0;
     return node->height;
 }
@@ -22,8 +22,8 @@ Node* createNode(int data)
 {
     Node* newNode = new Node();
     newNode->data = data;
-    newNode->left = nullptr;
-    newNode->right = nullptr;
+    newNode->left = null;
+    newNode->right = null;
     newNode->height = 1;
     return newNode;
 }
@@ -61,7 +61,7 @@ Node* rotateLeft(Node* z)
 Node* insertNode(Node* root, int data)
 {
     // مرحله 1: افزودن گره به صورت معمول در BST
-    if (root == nullptr)
+    if (root == null)
         return createNode(data);
 
     if (data < root->data)
