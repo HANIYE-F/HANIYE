@@ -82,3 +82,43 @@ Node* insert(Node* node, int key) {
         node->left = leftRotate(node->left);
         return rightRotate(node);
     }
+     return node;
+}
+
+Node * minValueNode(Node* node) {
+    Node* current = node;
+
+    while (current->left != nullptr)
+        current = current->left;
+
+    return current;
+}
+
+Node* remove(Node* root, int key) {
+    if (root == nullptr)
+        return root;
+
+    if ( key < root->key )
+        root->left = remove(root->left, key);
+    else if( key > root->key )
+        root->right = remove(root->right, key);
+    else {
+        if( (root->left == nullptr) || (root->right == nullptr) ) {
+            Node *temp = root->left ? root->left : root->right;
+
+            if (temp == nullptr) {
+                temp = root;
+                root = nullptr;
+            }
+            else
+                *root = *temp;
+            delete temp;
+        }
+        else {
+            Node* temp = minValueNode(root->right);
+
+            root->key = temp->key;
+
+            root->right = remove(root->right, temp->key);
+        }
+    }
