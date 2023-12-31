@@ -90,3 +90,25 @@ Node* insertNode(Node* root, int data)
             return rotateRight(root);
         }
     }
+    // اگر درخت به سمت راست شیب دارد
+    if (balanceFactor < -1)
+    {
+        // حالت 3: درج در زیردرخت راست راست
+        if (data > root->right->data)
+            return rotateLeft(root);
+
+        // حالت 4: درج در زیردرخت راست چپ
+        if (data < root->right->data)
+        {
+            root->right = rotateRight(root->right);
+            return rotateLeft(root);
+        }
+    }
+
+    return root;
+}
+
+Node* remove(Node* root, int data)
+{
+    // Implementation of remove method
+    return root;}
