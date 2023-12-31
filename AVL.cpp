@@ -151,4 +151,31 @@ Node* remove(Node* root, int key) {
 
     return root;
 }
+void preOrder(Node *root) {
+    if(root != nullptr) {
+        cout << root->key << " ";
+        preOrder(root->left);
+        preOrder(root->right);
+    }
+}
 
+int main() {
+    Node *root = nullptr;
+
+    root = insert(root, 10);
+    root = insert(root, 20);
+    root = insert(root, 30);
+    root = insert(root, 40);
+    root = insert(root, 50);
+    root = insert(root, 25);
+
+    cout << "Preorder traversal of the constructed AVL tree is \n";
+    preOrder(root);
+
+    root = remove(root, 20);
+
+    cout << "\nPreorder traversal after deletion of 20 \n";
+    preOrder(root);
+
+    return 0;
+}
